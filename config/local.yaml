@@ -1,0 +1,50 @@
+jwt:
+  signingKey: '8ZQUCQhumkGHvslHNpF6BmXowGbDGUcsfGFVFHYu3MM'
+  ttl: 604800 # 过期时间（秒），7天
+  refreshTtl: 86400 # 缓冲时间内会获得新的token刷新令牌（秒）1天
+
+system:
+  debug: true
+  address: ':8888'
+  dbType: 'mysql'
+  ossType: 'local'
+  timezone: 'Asia/Shanghai'
+
+account:
+  subCountLimit: 5
+  recoverValidityHour: 48  # 时效范围内可以恢复删除（小时）
+
+mysql:
+  path: '127.0.0.1:13306'
+  config: 'charset=utf8&parseTime=True&loc=Local'
+  dbName: 'adventure'
+  tablePrefix: 'avt_'
+  username: 'root'
+  password: '123456'
+  maxIdleConns: 10
+  maxOpenConns: 100
+  logMode: false
+
+zap:
+  level: 'info'
+  format: 'json'
+  prefix: ''
+  director: 'storage/logs'
+  showLine: true
+
+redis:
+  db: 0
+  addr: '127.0.0.1:16379'
+  password: ''
+
+oss:
+  local:
+    path: 'uploads/file'
+  qiniu:
+    zone: 'Huadong'
+    bucket: 'go-adventure'
+    imgPath: 'http://adventure.qiniu.3636886.com'
+    useHttps: false
+    accessKey: 'iYNWP_nWXOsf1ydrhuxiHUd_jyv99D1P7knNFy'
+    secretKey: 'xDzpnYgIivauDBSHLmoBZ-gYLpYAOrANdHOJw'
+    useCdnDomains: false
