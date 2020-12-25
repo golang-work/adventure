@@ -16,7 +16,7 @@ func Create(value interface{}, layout interface{}) (t time.Time) {
 		t := time.Unix(int64(v), 0)
 		return t
 	case string:
-		local, _ := time.LoadLocation(Config.System.Timezone)
+		local, _ := time.LoadLocation(Config["app"].GetString("system.timezone"))
 		t, _ := time.ParseInLocation(layout.(string), value.(string), local)
 		return t
 	}
@@ -45,7 +45,7 @@ func Now(names ...string) time.Time {
 	if ok {
 		return t
 	}
-	local, _ := time.LoadLocation(Config.System.Timezone)
+	local, _ := time.LoadLocation(Config["app"].GetString("system.timezone"))
 	return time.Now().In(local)
 }
 

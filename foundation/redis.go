@@ -9,11 +9,10 @@ import (
 )
 
 func Redis() *redis.Client {
-	conf := support.Config.Redis
 	client := redis.NewClient(&redis.Options{
-		Addr:     conf.Addr,
-		Password: conf.Password,
-		DB:       conf.DB,
+		Addr:     support.Config["database"].GetString("redis.addr"),
+		Password: support.Config["database"].GetString("redis.password"),
+		DB:       support.Config["database"].GetInt("redis.db"),
 	})
 
 	pong, err := client.Ping(context.TODO()).Result()

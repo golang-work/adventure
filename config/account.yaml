@@ -1,0 +1,2 @@
+subCountLimit: 5
+recoverValidityHour: 48  # 时效范围内可以恢复删除（小时）

@@ -1,0 +1,17 @@
+default: mysql
+connections:
+  mysql:
+    driver: 'mysql'
+    path: '127.0.0.1:13306'
+    config: 'charset=utf8&parseTime=True&loc=Local'
+    dbName: 'adventure'
+    tablePrefix: 'avt_'
+    username: 'root'
+    password: '123456'
+    maxIdleConns: 10
+    maxOpenConns: 100
+    logMode: false
+redis:
+  db: 0
+  addr: '127.0.0.1:16379'
+  password: ''

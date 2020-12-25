@@ -1,0 +1,11 @@
+oss:
+  local:
+    path: 'uploads/file'
+  qiniu:
+    zone: 'Huadong'
+    bucket: 'go-adventure'
+    imgPath: 'http://adventure.qiniu.3636886.com'
+    useHttps: false
+    accessKey: 'iYNWP_nWXOsf1ydrhuxiHUd_jyv99D1P7knNFy'
+    secretKey: 'xDzpnYgIivauDBSHLmoBZ-gYLpYAOrANdHOJw'
+    useCdnDomains: false

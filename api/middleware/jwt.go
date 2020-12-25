@@ -30,7 +30,7 @@ func JWTAuth() gin.HandlerFunc {
 			return
 		}
 		if claims.ExpiresAt-support.Now().Unix() < claims.RefreshTtl {
-			claims.ExpiresAt = support.Now().Unix() + support.Config.JWT.Ttl
+			claims.ExpiresAt = support.Now().Unix() + support.Config["auth"].GetInt64("jwt.ttl")
 			newToken, _ := jwt.CreateToken(*claims)
 			newClaims, _ := jwt.ParseToken(newToken)
 			ctx.Header("At-New-Token", newToken)

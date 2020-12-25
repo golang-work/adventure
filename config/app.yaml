@@ -1,0 +1,15 @@
+system:
+  debug: true
+  address: ':8888'
+  dbType: 'mysql'
+  ossType: 'local'
+  timezone: 'Asia/Shanghai'
+
+zap:
+  level: 'info'
+  format: 'json'
+  prefix: ''
+  director: 'storage/logs'
+  showLine: true
+
+

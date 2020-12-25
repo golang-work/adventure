@@ -15,9 +15,10 @@ type server interface {
 func Run() {
 	router := routes.Routers()
 	//router.Static("/assets", "./storage/assets")
-	//router.StaticFS(support.Config.Oss.Qiniu.ImgPath, http.Dir(support.Config.Oss.Qiniu.ImgPath))
+	//router.StaticFS(support.Config["filesystem"].GetString("oss.qiniu.imgPath"),
+	//	http.Dir(support.Config["filesystem"].GetString("oss.qiniu.imgPath")))
 
-	address := support.Config.System.Address
+	address := support.Config["app"].GetString("system.address")
 	s := initServer(address, router)
 	// 保证文本顺序输出
 	time.Sleep(10 * time.Microsecond)

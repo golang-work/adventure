@@ -26,14 +26,14 @@ func (d *auth) User() *foundation.Claims {
 }
 
 func (d *auth) MakeToken(account *models.Account) (string, int64, error) {
-	j := &foundation.JWT{SigningKey: []byte(support.Config.JWT.SigningKey)}
+	j := &foundation.JWT{SigningKey: []byte(support.Config["auth"].GetString("jwt.signingKey"))}
 	claims := foundation.Claims{
 		ID:         account.ID,
 		Username:   account.Username,
-		RefreshTtl: support.Config.JWT.RefreshTtl,
+		RefreshTtl: support.Config["auth"].GetInt64("jwt.refreshTtl"),
 		StandardClaims: jwt.StandardClaims{
 			NotBefore: support.Now().Unix() - 1000,
-			ExpiresAt: support.Now().Unix() + support.Config.JWT.Ttl,
+			ExpiresAt: support.Now().Unix() + support.Config["auth"].GetInt64("jwt.ttl"),
 			Issuer:    account.Username,
 		},
 	}

@@ -36,7 +36,7 @@ func (d *subAccount) CheckLimit(masterId uint) error {
 	var count int64
 	support.DB.Model(&models.SubAccount{}).Where("master_id = ?", masterId).Count(&count)
 
-	if count >= support.Config.Account.SubCountLimit {
+	if count >= support.Config["account"].GetInt64("subCountLimit") {
 		return support.Throw("sub_account_count_limit")
 	}
 	return nil
@@ -51,7 +51,7 @@ func (d *subAccount) Destroy(masterId uint, username string) error {
 	}
 
 	if sa.DestroyAt == nil {
-		t := support.Time(support.Now().Add(time.Duration(support.Config.Account.RecoverValidityHour) * time.Hour))
+		t := support.Time(support.Now().Add(time.Duration(support.Config["account"].GetInt("recoverValidityHour")) * time.Hour))
 		sa.DestroyAt = &t
 		support.DB.Save(sa)
 	}

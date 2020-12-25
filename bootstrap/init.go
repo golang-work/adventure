@@ -6,7 +6,7 @@ import (
 )
 
 func init() {
-	support.Viper = foundation.Viper()
+	support.Config = foundation.Config()
 	support.Log = foundation.Zap()
 	support.DB = foundation.Gorm()
 	support.Redis = foundation.Redis()

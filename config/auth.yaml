@@ -1,0 +1,4 @@
+jwt:
+  signingKey: '8ZQUCQhumkGHvslHNpF6BmXowGbDGUcsfGFVFHYu3MM'
+  ttl: 604800 # 过期时间（秒），7天
+  refreshTtl: 86400 # 缓冲时间内会获得新的token刷新令牌（秒）1天
