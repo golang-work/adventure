@@ -14,7 +14,7 @@ func (r *SubAccountDestroy) BindValid(ctx *gin.Context) error {
 	_ = ctx.ShouldBindJSON(r)
 
 	if err := validator.New().Struct(r); err != nil {
-		return support.Throw("invalid_param", "message", err.Error())
+		return support.Throw("invalidParam", "message", err.Error())
 	}
 
 	return nil

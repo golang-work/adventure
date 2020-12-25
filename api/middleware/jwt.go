@@ -21,9 +21,9 @@ func JWTAuth() gin.HandlerFunc {
 		if err != nil {
 			e := support.Abort{}
 			if err == foundation.TokenExpired {
-				e = support.Throw("token_expired")
+				e = support.Throw("tokenExpired")
 			} else {
-				e = support.Throw("token_invalid", "reason", err.Error())
+				e = support.Throw("tokenInvalid", "reason", err.Error())
 			}
 			protocol.Response(ctx).Abort(e).Json()
 			ctx.Abort()

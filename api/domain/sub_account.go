@@ -24,7 +24,7 @@ func (d *subAccount) Create(masterId uint,
 	result := support.DB.Where("master_id = ? and username = ?",
 		masterId, username).First(&account)
 	if result.RowsAffected > 0 {
-		return &account, support.Throw("account_exists")
+		return &account, support.Throw("accountExists")
 	}
 	account.MasterId = masterId
 	account.Username = username
@@ -37,7 +37,7 @@ func (d *subAccount) CheckLimit(masterId uint) error {
 	support.DB.Model(&models.SubAccount{}).Where("master_id = ?", masterId).Count(&count)
 
 	if count >= support.Config["account"].GetInt64("subCountLimit") {
-		return support.Throw("sub_account_count_limit")
+		return support.Throw("subAccountCountLimit")
 	}
 	return nil
 }
@@ -47,7 +47,7 @@ func (d *subAccount) Destroy(masterId uint, username string) error {
 	res := support.DB.Where("master_id = ? and username = ?",
 		masterId, username).First(sa)
 	if res.RowsAffected <= 0 {
-		return support.Throw("account_not_find")
+		return support.Throw("accountNotFind")
 	}
 
 	if sa.DestroyAt == nil {

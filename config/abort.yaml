@@ -1,0 +1,19 @@
+serverError: {level: "error", code: 20001, message: "服务器错误"}
+paramsError: {level: "notice", code: 20002, message: "参数错误"}
+accountExists: {level: "notice", code: 20003, message: "账号已存在"}
+accountNotFind: {level: "notice", code: 20004, message: "账号不存在"}
+jwtMakeTokenFail: {level: "notice", code: 20005, message: "生成token失败"}
+unauthenticated: {level: "unauthenticated", code: 20006, message: "请登录后操作"}
+unauthorized: {level: "unauthorized", code: 20007, message: "请登录后操作"}
+tokenOccupied: {level: "unauthenticated", code: 20008, message: "您的帐户异地登陆或令牌失效"}
+tokenExpired: {level: "unauthenticated", code: 20009, message: "授权已过期"}
+tokenInvalid: {level: "unauthenticated", code: 20010, message: "token无效 {{reason}}"}
+subAccountCountLimit: {level: "notice", code: 20011, message: "子账号数已达到上限"}
+invalidParam: {level: "invalidParam", code: 20012, message: "参数错误：{{message}}"}
+differentNewPassword: {level: "notice", code: 20013, message: "新密码与确认新密码不一致"}
+differentPassword: {level: "notice", code: 20014, message: "密码与确认密码不一致"}
+smsCodeError: {level: "notice", code: 20015, message: "验证码无效"}
+setSignInStateFail: {level: "notice", code: 20016, message: "设置登录状态失败"}
+addTokenToBlackFail: {level: "notice", code: 20017, message: "token加入黑名单失败"}
+passwordFail: {level: "notice", code: 20018, message: "密码错误"}
+sendVcodeFail: {level: "notice", code: 20019, message: "验证码发送失败"}

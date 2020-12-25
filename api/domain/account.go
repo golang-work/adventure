@@ -20,7 +20,7 @@ func (d *account) SignUp(username string, password string) (*models.Account, err
 	account := models.Account{}
 	rs := support.DB.Where("username = ?", username).First(&account)
 	if rs.RowsAffected > 0 {
-		return &account, support.Throw("account_exists")
+		return &account, support.Throw("accountExists")
 	}
 	account.Username = username
 	hash, _ := support.Bcrypt(password, "")
@@ -34,11 +34,11 @@ func (d *account) SignIn(username string, password string) (*models.Account, err
 	account := models.Account{}
 	rs := support.DB.Where("username = ?", username).First(&account)
 	if rs.RowsAffected <= 0 {
-		return &account, support.Throw("account_not_find")
+		return &account, support.Throw("accountNotFind")
 	}
 	_, err := support.Bcrypt(password, account.Password)
 	if err != nil {
-		return &account, support.Throw("password_fail")
+		return &account, support.Throw("passwordFail")
 	}
 	return &account, nil
 }
@@ -46,7 +46,7 @@ func (d *account) SignIn(username string, password string) (*models.Account, err
 func (d *account) FindById(id uint) (*models.Account, error) {
 	var account models.Account
 	if err := support.DB.Where("`id` = ?", id).First(&account).Error; err != nil {
-		return &account, support.Throw("account_not_find")
+		return &account, support.Throw("accountNotFind")
 	}
 	return &account, nil
 }

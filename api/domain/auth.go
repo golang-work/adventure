@@ -40,7 +40,7 @@ func (d *auth) MakeToken(account *models.Account) (string, int64, error) {
 	token, err := j.CreateToken(claims)
 	if err != nil {
 		support.Log.Error(err.Error(), zap.Any("err", err))
-		return "", 0, support.Throw("jwt_make_token_fail")
+		return "", 0, support.Throw("jwtMakeTokenFail")
 	}
 
 	return token, claims.StandardClaims.ExpiresAt, nil

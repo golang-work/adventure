@@ -29,7 +29,7 @@ func (c *vcodeController) Send(ctx *gin.Context) {
 
 	conf := support.Config["vcode"].Sub(request.AppId + "." + request.Category)
 	if conf == nil {
-		protocol.Response(ctx).Abort("params_error").Json()
+		protocol.Response(ctx).Abort("paramsError").Json()
 		return
 	}
 

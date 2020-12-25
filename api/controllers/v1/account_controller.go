@@ -68,7 +68,7 @@ func (c *accountController) ResetPassword(ctx *gin.Context) {
 	}
 
 	if request.NewPassWord != request.NewPassWordConfirm {
-		protocol.Response(ctx).Abort("different_new_password").Json()
+		protocol.Response(ctx).Abort("differentNewPassword").Json()
 		return
 	}
 
@@ -96,13 +96,13 @@ func (c *accountController) RetrievePassword(ctx *gin.Context) {
 	}
 
 	if request.Password != request.PassWordConfirm {
-		protocol.Response(ctx).Abort("different_password").Json()
+		protocol.Response(ctx).Abort("differentPassword").Json()
 		return
 	}
 
 	// todo:: 短信验证保持通过
 	if request.Code != "10866" {
-		protocol.Response(ctx).Abort("sms_code_error").Json()
+		protocol.Response(ctx).Abort("smsCodeError").Json()
 		return
 	}
 
