@@ -39,6 +39,7 @@ var e = map[string]Abort{
 	"set_sign_in_state_fail":  {"notice", 20016, "设置登录状态失败"},
 	"add_token_to_black_fail": {"notice", 20017, "token加入黑名单失败"},
 	"password_fail":           {"notice", 20018, "密码错误"},
+	"send_vcode_fail":         {"notice", 20019, "验证码发送失败"},
 }
 
 func Throw(error string, extra ...string) Abort {

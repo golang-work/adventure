@@ -14,6 +14,8 @@ func Routers() *gin.Engine {
 
 	guestGroup := router.Group("api")
 	{
+		guestGroup.POST("sms/send", v1.VcodeController().Send)
+
 		guestGroup.POST("account/sign-up", v1.AccountController().SignUp)
 		guestGroup.POST("account/sign-in", v1.AccountController().SignIn)
 

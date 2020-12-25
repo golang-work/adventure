@@ -4,6 +4,7 @@ go 1.14
 
 require (
 	github.com/alecthomas/template v0.0.0-20190718012654-fb15b899a751
+	github.com/aliyun/alibaba-cloud-sdk-go v1.61.787
 	github.com/casbin/casbin v1.9.1
 	github.com/casbin/gorm-adapter/v3 v3.0.4
 	github.com/dgrijalva/jwt-go v3.2.0+incompatible
@@ -16,6 +17,7 @@ require (
 	github.com/go-sql-driver/mysql v1.5.0
 	github.com/golang/protobuf v1.4.3 // indirect
 	github.com/jinzhu/gorm v1.9.16
+	github.com/jmespath/go-jmespath v0.4.0 // indirect
 	github.com/joho/godotenv v1.3.0
 	github.com/json-iterator/go v1.1.10 // indirect
 	github.com/mitchellh/mapstructure v1.4.0 // indirect
@@ -33,6 +35,7 @@ require (
 	golang.org/x/sys v0.0.0-20201211002650-1f0c578a6b29 // indirect
 	golang.org/x/tools v0.0.0-20201211185031-d93e913c1a58 // indirect
 	google.golang.org/protobuf v1.25.0 // indirect
+	gopkg.in/ini.v1 v1.62.0 // indirect
 	gorm.io/driver/mysql v1.0.3
 	gorm.io/gorm v1.20.8
 )

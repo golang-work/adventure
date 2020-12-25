@@ -1,0 +1,18 @@
+default: '9m4e2mr0ui3e8a215n4g'
+9m4e2mr0ui3e8a215n4g:
+  signUp:
+    # cleckAndClear: true
+    codeLength: 6
+    vendor: 'aliyun' # 需要先注册相应服务商
+    sign:
+      aliyun: # 不同供应商签名参数不同，这里配置 vendor 供应商名称，与注册的名字一致
+        templateCode: 'SMS_1***5002'
+        signName: '阿里云'
+  signIn:
+    # cleckAndClear: true
+    codeLength: 6
+    vendor: 'aliyun' # 需要先注册相应服务商
+    sign:
+      aliyun: # 不同供应商签名参数不同，这里配置 vendor 供应商名称，与注册的名字一致
+        templateCode: 'SMS_1***5002'
+        signName: '阿里云'
