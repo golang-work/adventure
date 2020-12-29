@@ -23,6 +23,11 @@ func Response(ctx *gin.Context) *response {
 	}
 }
 
+func (r *response) List(list List) *response {
+	r.sendBody["data"] = list.Convert()
+	return r
+}
+
 func (r *response) Result(data interface{}) *response {
 	r.sendBody["data"] = data
 	return r

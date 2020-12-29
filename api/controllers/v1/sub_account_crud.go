@@ -3,6 +3,7 @@ package v1
 import (
 	"github.com/gin-gonic/gin"
 	"github.com/golang-work/adventure/api/domain"
+	"github.com/golang-work/adventure/api/list"
 	"github.com/golang-work/adventure/api/protocol"
 	"github.com/golang-work/adventure/api/requests"
 	"github.com/golang-work/adventure/models"
@@ -24,8 +25,8 @@ func (c *subAccountCrud) List(ctx *gin.Context) {
 		return
 	}
 
-	list := domain.SubAccount(ctx).List(masterId, request.GroupId)
-	protocol.Response(ctx).Result(list).Json()
+	res := domain.SubAccount(ctx).List(masterId, request.GroupId)
+	protocol.Response(ctx).List(list.NewSubAccount(res)).Json()
 	return
 }
 
@@ -57,7 +58,7 @@ func (c *subAccountCrud) Store(ctx *gin.Context) {
 	subAccount.OnlineName = request.OnlineName
 
 	support.DB.Create(subAccount)
-	protocol.Response(ctx).Result(subAccount).Json()
+	protocol.Response(ctx).List(list.NewSubAccount([]*models.SubAccount{subAccount})).Json()
 	return
 }
 

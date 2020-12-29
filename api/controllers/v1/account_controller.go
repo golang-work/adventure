@@ -3,8 +3,10 @@ package v1
 import (
 	"github.com/gin-gonic/gin"
 	"github.com/golang-work/adventure/api/domain"
+	"github.com/golang-work/adventure/api/list"
 	"github.com/golang-work/adventure/api/protocol"
 	"github.com/golang-work/adventure/api/requests"
+	"github.com/golang-work/adventure/models"
 	"github.com/golang-work/adventure/support"
 )
 
@@ -28,7 +30,7 @@ func (c *accountController) SignUp(ctx *gin.Context) {
 		return
 	}
 
-	protocol.Response(ctx).Result(account).Json()
+	protocol.Response(ctx).List(list.NewAccount([]*models.Account{account})).Json()
 	return
 }
 
