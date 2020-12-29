@@ -6,7 +6,6 @@ import (
 	"github.com/golang-work/adventure/api/protocol"
 	"github.com/golang-work/adventure/api/requests"
 	"github.com/golang-work/adventure/support"
-	"go.uber.org/zap"
 )
 
 type vcodeController struct{}
@@ -35,8 +34,7 @@ func (c *vcodeController) Send(ctx *gin.Context) {
 
 	err := domain.Vcode(ctx).Send(conf, request.Handle)
 	if err != nil {
-		support.Log.Error("send sms error", zap.Any("msg", err.Error()))
-		protocol.Response(ctx).Abort(err).Json()
+		protocol.Response(ctx).Abort("sendVcodeFail").Json()
 		return
 	}
 

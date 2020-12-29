@@ -4,7 +4,9 @@ import (
 	"github.com/gin-gonic/gin"
 	"github.com/golang-work/adventure/provider"
 	send "github.com/golang-work/adventure/provider/sms"
+	"github.com/golang-work/adventure/support"
 	"github.com/spf13/viper"
+	"go.uber.org/zap"
 )
 
 type vcode struct {
@@ -35,6 +37,7 @@ func (d *vcode) Send(conf *viper.Viper, handle string) error {
 
 	err = sender.SendVcode(params...)
 	if err != nil {
+		support.Log.Error("send sms error", zap.Any("msg", err.Error()))
 		return err
 	}
 	return nil
