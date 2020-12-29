@@ -21,7 +21,6 @@ var LevelMap = map[string]int{
 }
 
 func Throw(error string, extra ...string) Abort {
-
 	conf := Config["abort"].Sub(error)
 	if conf == nil {
 		conf = Config["abort"].Sub("paramsError")
