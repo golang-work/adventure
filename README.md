@@ -43,12 +43,13 @@
 
 ## 安装与运行
 
-1. 新建一个数据库并修改数据库连接信息：`configs/local.yaml`
+1. 新建一个数据库并修改数据库连接信息：`configs/database.yaml`
 2. 直接运行：`go run main.go`，也可以编译后再运行
 
 # 项目已实现的api列表
 
 ```
+[GIN-debug] POST   /api/sms/send             --> github.com/golang-work/adventure/api/controllers/v1.(*vcodeController).Send-fm (4 handlers)
 [GIN-debug] POST   /api/account/sign-up      --> github.com/golang-work/adventure/api/controllers/v1.(*accountController).SignUp-fm (4 handlers)
 [GIN-debug] POST   /api/account/sign-in      --> github.com/golang-work/adventure/api/controllers/v1.(*accountController).SignIn-fm (4 handlers)
 [GIN-debug] GET    /api/outside/login-server/list --> github.com/golang-work/adventure/api/controllers/v1.(*outsideController).ListLoginServer-fm (4 handlers)
