@@ -1,8 +1,8 @@
-# golang & gin simple projects
+## golang & gin simple projects
 
 该项目是使用golang+gin框架实现的简易版api业务
 
-# 特性
+## 特性
 
 - [x] RESTful API
 - [x] gorm
@@ -14,7 +14,7 @@
 - [x] abort报错机制
 - [x] MVC模式
 
-# 目录结构说明
+## 目录结构说明
 
 ```
 ├── api // 业务逻辑
@@ -34,19 +34,19 @@
 ├── main.go // 主文件
 ```
 
-# 安装与运行
+## 安装与运行
 
-## 环境要求
+### 环境要求
 
 * go version =>  ~1.13
 * mysql version => ~5.5
 
-## 安装与运行
+### 安装与运行
 
-1. 新建一个数据库并修改数据库连接信息：`configs/database.yaml`
+1. 新建一个数据库并修改数据库连接信息：`config/database.yaml`
 2. 直接运行：`go run main.go`，也可以编译后再运行
 
-# 项目已实现的api列表
+## 项目已实现的api列表
 
 ```
 [GIN-debug] POST   /api/sms/send             --> github.com/golang-work/adventure/api/controllers/v1.(*vcodeController).Send-fm (4 handlers)
