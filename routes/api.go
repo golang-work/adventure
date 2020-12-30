@@ -10,7 +10,7 @@ func Routers() *gin.Engine {
 	var router = gin.Default()
 
 	// router.Use(middleware.LoadTls())
-	router.Use(middleware.Cors())
+	router.Use(middleware.RequestId(), middleware.Cors())
 
 	guestGroup := router.Group("api")
 	{
